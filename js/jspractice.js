@@ -36,7 +36,7 @@ console.log(computeSum([2, 4, 5]));
 
 // Start with the hash: city_populations = {chi: 2700000}
 // Add populations to the city_populations hash for New York City (8.4 million) and San Francisco (800,000).
-The result should be: {chi: 2700000, nyc: 8400000, sf: 800000}
+//The result should be: {chi: 2700000, nyc: 8400000, sf: 800000}
 var cityPopulations = {chi: 2700000};
 cityPopulations["nyc"] = 8400000;
 cityPopulations.sf = 800000;  // same as cityPopulations["sf"]
@@ -135,10 +135,10 @@ arrayMash([1,5,10],[100,500,1000]);
 // Write a method that accepts one argument - an array of numbers. The method should return the greatest number. For example, if the input is [5, 4, 8, 1, 2], the output should be 8.
 
 function largestNumber(array) {
-  array = array.sort(function(a, b) {
-    return a - b;
+  var number = array.reduce(function(x,y) {
+    return (x > y) ? x : y; //ternary if statment: if x>y is true than X if false then Y
   });
-  console.log(array[array.length - 1]);
+  console.log(number);
 }
 largestNumber([5,4,8,1,2]);
 

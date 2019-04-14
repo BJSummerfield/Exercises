@@ -4,11 +4,11 @@ File.open("football.dat") do |f|
   while (line = f.gets)
     ary = line.split
       if ary[2].to_i == 38
-        team = [ary[1],(ary[6].to_i-ary[8].to_i)]
+       team = [ary[1],(ary[6].to_i-ary[8].to_i)]
         teams << team
        end
       end
   average = teams.sort_by{|a| a[1]}
   average = average.min_by{|x| (0-x[1]).abs}
-  p average[0]
+ p average[0]
 end
