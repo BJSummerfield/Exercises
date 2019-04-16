@@ -21,9 +21,9 @@ class ChangeMachine
       answer << "L"  && number -= 50 if number >= 50 && number > 26
       answer << "X"  && number -= 10 if number < 25 && number > 11
       answer << "VI"  && number -= 6 if number == 6
-      answer << "V"  && number -= 5 if number == 5
+      answer << "V"  && number -= 5 if number < 10 && number > 4
       answer << "IV"  && number -= 4 if number == 4
-      answer << "I"  && number -= 1 if number < 3 && number > 0
+      answer << "I"  && number -= 1 if number < 5 && number > 0
     end
     return answer.join('')
   end
@@ -33,19 +33,25 @@ end
 
 RSpec.describe ChangeMachine do
   describe '#roman' do
+    it 'should return [VIV] when given 9' do
+      machine = ChangeMachine.new
+      expect(machine.roman(9)).to eq("VIV")
+    end
+  end
+  describe '#roman' do
     it 'should return [VIII] when given 8' do
       machine = ChangeMachine.new
       expect(machine.roman(8)).to eq("VIII")
     end
   end
   describe '#roman' do
-    it 'should return [XVI] when given 8' do
+    it 'should return [XVI] when given 16' do
       machine = ChangeMachine.new
       expect(machine.roman(16)).to eq("XVI")
     end
   end 
   describe '#roman' do
-    it 'should return [CLIV] when given 8' do
+    it 'should return [CLIV] when given 154' do
       machine = ChangeMachine.new
       expect(machine.roman(154)).to eq("CLIV")
     end
